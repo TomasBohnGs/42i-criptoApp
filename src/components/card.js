@@ -1,7 +1,7 @@
 import {StyleSheet, View, Text} from 'react-native'
 import { Card, IconButton } from 'react-native-paper';
 
-export default function CriptoCard({ demo, demoSearch }) {
+export default function CriptoCard({ navigation, demo, demoSearch }) {
 
 if(demo ) {
     return (
@@ -32,7 +32,7 @@ else if( demoSearch ){
                 <Text style={styles.paragraph}>{demoSearch}</Text>
                 <Card.Actions>
                     <IconButton 
-                        onPress={ () => console.log('Eliminado')}
+                        onPress={ () => navigation.navigate( 'Detail', {demoSearch: demoSearch} )}
                         icon="plus"
                         mode="contained"
                         size={20}

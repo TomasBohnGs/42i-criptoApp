@@ -29,7 +29,7 @@ export default function Search({ navigation }) {
       />
       <ScrollView>
       {
-        demoSearch.map( el => <Card demoSearch={el} />)
+        demoSearch.map( (el, idx) => <Card navigation={navigation} key={idx} value={el} demoSearch={el} />)
       }
       </ScrollView>
     </View>

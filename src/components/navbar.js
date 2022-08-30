@@ -7,7 +7,7 @@ return (
         {
         !onHome &&
         <Appbar.BackAction 
-            onPress={ () => navigation.navigate( 'Home' )}
+            onPress={ () => navigation.goBack() }
         />
         }
         <Appbar.Content title="CriptoFav" />

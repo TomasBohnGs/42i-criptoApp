@@ -17,7 +17,7 @@ export default function Home({ navigation }) {
     <View style={{flex: 1}}>
       <Navbar navigation={navigation} onHome={true}/>
       <ScrollView style={{flex: 1}}>
-        { demo.map(el => <Card demo={el}/>) }
+        { demo.map((el, idx) => <Card key={idx} demo={el}/>) }
       </ScrollView>
       <View style={{position:'absolute', bottom:0, alignSelf:'flex-end'}}>
         <Add navigation={navigation}/>

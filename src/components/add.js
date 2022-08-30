@@ -6,6 +6,6 @@ return (
         onPress={ () => navigation.navigate( 'Search' )}
         icon="plus"
         mode="contained"
-        size= {30}
+        size= {50}
     />
 )};
