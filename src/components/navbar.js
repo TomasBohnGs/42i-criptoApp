@@ -1,18 +1,17 @@
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Appbar } from 'react-native-paper'
 
-export default function Navbar({ navigation }) {
+export default function Navbar({ navigation, onHome }) {
 return (
-    <View style={styles.container}>
-        <Button 
-            onPress={ () => navigation.navigate( 'Search' )}
-            title="Search"
+    <Appbar.Header>
+        {
+        !onHome &&
+        <Appbar.BackAction 
+            onPress={ () => navigation.navigate( 'Home' )}
         />
-    </View>
+        }
+        <Appbar.Content title="CriptoFav" />
+    </Appbar.Header>
 );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: 'aqua'
-    },
-});
