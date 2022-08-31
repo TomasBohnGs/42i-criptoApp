@@ -24,6 +24,7 @@ The app count with three windows:
 ### Tech Stack
 
 **React Native** - React Native Paper
+<br>
 Having in mind that the project was developed for Flutter and Mock-Ups were done mobile first, I decided to take my React knowledge to the mobile world and developed this app on React Native.
 
 ### Running the app
