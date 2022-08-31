@@ -15,7 +15,6 @@ export default function Search({ navigation, route }) {
   useEffect(() => {
     setData(Crypto.filter( crypto => crypto.toLowerCase().includes(text.toLocaleLowerCase())))
   }, [text])
-  console.log(data, text)
 
   return (
     <View style={{flex: 1}}>

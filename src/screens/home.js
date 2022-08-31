@@ -6,6 +6,7 @@ import Card from '../components/card.js';
 
 export default function Home({ navigation }) {
   const [trackingList, setTrackingList] = useState([])
+
   return (
     <View style={{flex: 1}}>
       <Navbar navigation={navigation} onHome={true}/>
