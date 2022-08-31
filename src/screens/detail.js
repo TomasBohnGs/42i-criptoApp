@@ -2,14 +2,22 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TextInput, Text, Button } from 'react-native-paper'
 import Navbar from '../components/navbar.js';
+import  axios  from 'axios';
 
 
 export default function Detail({ navigation, route }) {
-  console.log( route );
+  const {trackingList, setTrackingList, cryptoTag} = route.params;
+  const cryptoName = cryptoTag.toLowerCase();
   const [amount, setAmount] = useState('')
-  const onHandledSave = () => {
-    console.log(amount)
+  const onHandledSave = async () => {
+    const info = await axios.get(`https://api.cryptapi.io/${cryptoName}/info/`)
+    setTrackingList([
+      ...trackingList,
+      {id: trackingList.length , tag: cryptoTag, value: parseInt(info.data.prices.USD)* parseInt(amount), currency: 'USD'}
+    ])
+    navigation.navigate( 'Home' )
   }
+
   return (
     <View>
       <Navbar navigation={navigation} />
@@ -17,12 +25,12 @@ export default function Detail({ navigation, route }) {
         <Text 
           style={{alignText: 'center'}}
           variant="headlineLarge"
-          >{route.params.demoSearch}</Text>
+          >{route.params.cryptoTag}</Text>
       </View>
       <View style={{margin: 7}}>
         <TextInput 
         mode='outlined'
-        label={`Cantidad de ${route.params.demoSearch}`}
+        label={`Cantidad de ${route.params.cryptoTag}`}
         value={amount}
         onChangeText={text => setAmount(text)}
         style={{margin: 15}}
@@ -30,7 +38,6 @@ export default function Detail({ navigation, route }) {
         <Button
           onPress={onHandledSave}
           mode="contained"
-          
           >
           Guardar
         </Button>

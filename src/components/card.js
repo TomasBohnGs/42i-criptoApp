@@ -1,18 +1,18 @@
 import {StyleSheet, View, Text} from 'react-native'
 import { Card, IconButton } from 'react-native-paper';
 
-export default function CriptoCard({ navigation, demo, demoSearch }) {
+export default function CriptoCard({ navigation, crypto, cryptoTag, trackingList, setTrackingList }) {
 
-if(demo ) {
+if( crypto ) {
     return (
     <View style={styles.container}>
         <Card>
             <View style={styles.card}>
-                <Text style={styles.paragraph}>{demo.tag}</Text>
-                <Text>{`${demo.currency} ${demo.value}`}</Text>
+                <Text style={styles.paragraph}>{crypto.tag}</Text>
+                <Text>{`${crypto.currency} ${crypto.value}`}</Text>
                 <Card.Actions>
                     <IconButton 
-                        onPress={ () => console.log('Eliminado')}
+                        onPress={ () => setTrackingList(trackingList.filter( card => card.id !== crypto.id ))}
                         icon="trash-can-outline"
                         mode="contained"
                         size={20}
@@ -24,15 +24,18 @@ if(demo ) {
     )
 }
 
-else if( demoSearch ){
+else if( cryptoTag ){
+    const handleAdd = () => {
+        navigation.navigate( 'Detail', {cryptoTag: cryptoTag, trackingList: trackingList, setTrackingList: setTrackingList})
+    }
     return (
     <View style={styles.container}>
         <Card>
             <View style={styles.card}>
-                <Text style={styles.paragraph}>{demoSearch}</Text>
+                <Text style={styles.paragraph}>{cryptoTag}</Text>
                 <Card.Actions>
                     <IconButton 
-                        onPress={ () => navigation.navigate( 'Detail', {demoSearch: demoSearch} )}
+                        onPress={ () => handleAdd() }
                         icon="plus"
                         mode="contained"
                         size={20}
