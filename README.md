@@ -27,3 +27,18 @@ The app count with three windows:
 Having in mind that the project was developed for Flutter and Mock-Ups were done mobile first, I decided to take my React knowledge to the mobile world and developed this app on React Native.
 
 ### Running the app
+**Runing the app on a simulator**
+<br>
+*1-* You need to have, installed on your computer, Node 15.16 or higher. Also, you need to have a simulator where to run the app. Depending on your setup, you can use Android Studio, XCode or the Expo App (available on IOS and Android devices).
+<br>
+*2-* Clone this repo to your computer.
+<br>
+*3-* On the main folder of the project, run "npm install"
+<br>
+*4-* After all dependencies are installed, you can run "npm start"
+<br>
+*5-* Choose the simulator that you prefer, and enjoy the app.
+
+**Installing the apk direct on your phone**
+<br>
+*Coming Soon!*
